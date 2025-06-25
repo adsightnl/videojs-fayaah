@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoJS Fayaah</title>
+    <script src="/node_modules/video.js/dist/video.min.js"></script>
+    <script src="/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js"></script>
+    <script src="/node_modules/videojs-ima/dist/videojs.ima.js"></script>
+    <script src="/lib/videojs-resolution-switcher.js"></script>
+    <script src="/lib/videojs-analytics.js"></script>
+    <script src="/lib/videojs.suggestedVideoEndcap.js"></script>
+
+    <link href="/node_modules/videojs-contrib-ads/dist/videojs.ads.css" rel="stylesheet">
+    <link href="/node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+    <link href="/node_modules/videojs-ima/dist/videojs.ima.css" rel="stylesheet">
+    <link href="/lib/videojs.suggestedVideoEndcap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/lib/videojs-resolution-switcher.css">
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 600px;
+            background-color: white;
+        }
+        #video {
+
+        }
+
+        .fayaahlogo{
+          background-image: url('/fayaah-icon.svg') !important;
+          background-repeat: no-repeat !important;
+          margin-top: 3px !important;
+        }
+
+    </style>
+</head>
+<body>
+     <video id='video' class="video-js vjs-big-play-centered vjs-16-9"></video>
+
+     <script>
+        videojs('video', {
+      controls: true,
+      muted: false,
+      width: 1000,
+      sources: [{
+        src: '/files/1259168537.360p.mp4',
+        type: 'video/mp4',
+      }]
+    }, function(){
+      var player = this;
+      window.player = player
+   
+
+      var ButtonComp = videojs.getComponent('Button');
+      var fayaahLogo = new ButtonComp(player, {
+        clickHandler: function(event) {
+          window.open('https://fayaah.com', '_blank');
+        }
+      });
+       fayaahLogo.addClass('fayaahlogo')
+     player.controlBar.addChild(fayaahLogo,{},20);
+
+      player.analytics({
+      'mode': 'GTAG',
+      events: [
+    {
+      name: 'play',
+      label: 'video play',
+      action: 'play',
+    },
+    {
+      name: 'pause',
+      label: 'video pause',
+      action: 'pause',
+    },
+    {
+      name: 'ended',
+      label: 'video ended',
+      action: 'ended',
+    },
+    {
+      name: 'error',
+      label: 'error',
+      action: 'error',
+    },
+  ]
+});
+player.suggestedVideoEndcap({
+    header: 'You may also like…',
+    suggestions: [
+      {
+        title: 'Suggested Video One',
+        url: '/another-video.html',
+        image: 'https://placehold.co/250', // could be an animated GIF
+        alt: 'Description of photo', // optional photo description, defaults to the title
+        target: '_blank' // can be any anchor target type
+      },
+      {
+        title: 'Suggested Article One',
+        url: '/a-different-article.html',
+        image: 'https://placehold.co/250',
+        target: '_self' // defaults to self if no target value is present
+      }
+    ]
+  });
+
+    });
+    
+     </script>
+</body>
+</html>

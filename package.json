@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "video.js": "^8.22.0",
+    "videojs-contrib-ads": "^7.5.2",
+    "videojs-ima": "^2.3.0"
+  }
+}
