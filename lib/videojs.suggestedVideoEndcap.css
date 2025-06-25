@@ -4,7 +4,7 @@
   height: 100%;
   left: 0;
   overflow: hidden;
-  padding: 20px;
+  padding: 5px;
   position: absolute;
   right: 0;
   top: 0;
@@ -32,7 +32,7 @@
 }
 .vjs-suggested-video-endcap-header {
   font: 700 16px/1 Arial, sans-serif;
-  margin: 0 auto 20px;
+  margin: 0 auto 10px;
   text-align: center;
 }
 .vjs-suggested-video-endcap-link {
