@@ -1,3 +1,5 @@
+
+
 .vjs-suggested-video-endcap {
   background: rgba(0, 0, 0, .7);
   display: none;
@@ -10,6 +12,7 @@
   top: 0;
   width: 100%;
 }
+
 .vjs-suggested-video-endcap.is-active {
   display: block;
 }
@@ -52,4 +55,16 @@
   height: auto;
   margin-bottom: 5px;
   width: 100%;
+}
+
+@media screen and (min-width: 500px){
+    .vjs-suggested-video-endcap {
+        padding:20px;
+    }
+    .vjs-suggested-video-endcap-header{
+          margin: 0 auto 20px;
+    }
+    .vjs-suggested-video-endcap-link {
+        margin:10px;
+    }
 }
