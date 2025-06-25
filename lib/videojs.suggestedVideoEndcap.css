@@ -36,10 +36,12 @@
   text-align: center;
 }
 .vjs-suggested-video-endcap-link {
-  font: 400 18px/1 Arial, sans-serif;
+  font: 400 14px/1 Arial, sans-serif;
+  color: #fff;
   margin-bottom: 20px;
   margin-right: 20px;
   position: relative;
+  text-decoration: none;
   width: 23%;
 }
 .vjs-suggested-video-endcap-link:nth-of-type(4n),
